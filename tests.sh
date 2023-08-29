@@ -26,7 +26,7 @@ remake
 echo -e "\nTesting :: Compilation\n"
 if make; then 
     echo -e "  ${GREEN}Passed${NC}"
-    SCORE=$(($SCORE+25))
+    SCORE=$(($SCORE+30))
 else
     echo -e "  ${RED}Failed${NC}"
 fi
@@ -36,7 +36,7 @@ echo -e "\nTesting :: Correct Output\n"
 ./buggy > out.txt
 if  grep 2 out.txt && grep 4 out.txt; then
     echo -e "  ${GREEN}Passed${NC}"
-    SCORE=$(($SCORE+20))
+    SCORE=$(($SCORE+30))
 else
     echo -e "  ${RED}Failed${NC}"
 fi
@@ -45,14 +45,14 @@ echo -e "\nTesting :: Testing memory leaks\n"
 g++ -fsanitize=address,undefined buggy buggy.cpp
 if  ./buggy; then 
     echo -e "  ${GREEN}Passed${NC}"
-    SCORE=$(($SCORE+25))
+    SCORE=$(($SCORE+30))
 else
     echo -e "  ${RED}Failed${NC}"
 fi
 # print score and delete executable
-echo -e "\nSCORE: ${SCORE}/70\n"
+echo -e "\nSCORE: ${SCORE}/90\n"
 
-echo -e "\nRemaining 30 points are added based on the Hidden tests outputs and Code comments\n"
+echo -e "\nRemaining 10 points are added based on Code comments\n"
 echo -e "\nCheck the Rubric in document for further details\n"
 
 make -s clean

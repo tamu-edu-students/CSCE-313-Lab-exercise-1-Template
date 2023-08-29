@@ -1,7 +1,7 @@
 #include <iostream>
 
-// FIXME
-// TODO: why to add directive?
+// FIXME: Add appropriate declarative regions to scope and other header files.
+// EXPLAIN: Why are these required?
 struct Point {
     int x, y;
 
@@ -13,22 +13,23 @@ class Shape {
     int vertices;
     Point** points;
 
-// FIXME
-// TODO: why to mention the modifier
+// FIXME: Add appropriate access modifiers.
+// EXPLAIN: Why should we add the access modifier?
     Shape (int _vertices) {
         vertices = _vertices;
         points = new Point*[vertices+1];
     }
 
-    //FIXME
-    //TODO: which variables can be cleared here
+    //FIXME: Fill out the destructor.
+    //EXPLAIN: Why should we fill destructors? What will happen if the destroyer is left empty?
     ~Shape () {
     }
 
-    //FIXME
+    // FIXME
     void addPoints (/* formal parameter for unsized array called pts */) {
         for (int i = 0; i <= vertices; i++) {
-            //FIXME: initialize
+            //FIXME: Add an allocation of point
+            //EXPLAIN: Why should we add the allocation of point?
             memcpy(points[i], &pts[i%vertices], sizeof(Point));
         }
     }
@@ -37,7 +38,6 @@ class Shape {
     double* area () {
         int temp = 0;
         // FIXME
-        // TODO: Loop should be updated but why?
         for (int i = 0; i <= vertices; i++) {
             // FIXME: there are two methods to access members of pointers
             //        use one to fix lhs and the other to fix rhs
@@ -75,8 +75,7 @@ int main () {
     Shape* quad = new Shape(4);
     quad.addPoints(quadPts);
 
-    // FIXME: print out area of tri and area of quad
+    // FIXME: print out area of triangle and area of quad
 
-    // FIXME
-    // TODO: what to clean and why?
+    // FIXME: clean-up dynamically allocated memory to avoid memory leaks
 }
